@@ -17,6 +17,35 @@
  * along with ActivityPub.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+//! ActivityPub
+//!
+//! This crate defines the base set of types from the ActivityPub specification.
+//!
+//! ## Example Usage
+//! ```rust
+//! extern crate activitypub;
+//! extern crate failure;
+//! extern crate serde_json;
+//!
+//! use activitypub::{context, object::Video};
+//! use failure::Error;
+//!
+//! fn run() -> Result<(), Error> {
+//!     let mut video = Video::default();
+//!     video.object_props.set_context_object(context())?;
+//!     video.ap_object_props.set_likes_string("https://my-instance.com/likes".to_owned());
+//!
+//!     let video_string = serde_json::to_string(&video)?;
+//!
+//!     let video: Video = serde_json::from_str(&video_string)?;
+//!
+//!     Ok(())
+//! }
+//! #
+//! # fn main() {
+//! #     run().unwrap();
+//! # }
+//! ```
 #[macro_use]
 extern crate activitystreams_derive;
 extern crate activitystreams_traits;
