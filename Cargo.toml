@@ -1,7 +1,12 @@
 [package]
 name = "activitypub"
+description = "ActivityPub in Rust"
 version = "0.1.0"
-authors = ["Riley Trautman <rileyt@spiceworks.com>"]
+license = "GPL-3.0"
+authors = ["asonix <asonix.dev@gmail.com>"]
+repository = "https://github.com/asonix/activitypub"
+readme = "README.md"
+keywords = ["activitystreams", "activitypub"]
 
 [dependencies]
 activitystreams-derive = "0.1"
