@@ -21,7 +21,7 @@ use serde_json;
 
 #[derive(Clone, Debug, Default, Deserialize, Properties, Serialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ApEndpointProperties {
+pub struct Endpoint {
     // TODO: IRI
     #[activitystreams(concrete(String))]
     proxy_url: Option<serde_json::Value>,

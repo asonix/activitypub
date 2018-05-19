@@ -53,6 +53,6 @@ pub struct ApActorProperties {
     #[activitystreams(concrete(String), ab(Link))]
     streams: Option<serde_json::Value>,
 
-    #[activitystreams(ab(Endpoint), functional)]
+    #[activitystreams(concrete(Endpoint), functional)]
     endpoints: Option<serde_json::Value>,
 }
