@@ -17,6 +17,8 @@
  * along with ActivityPub.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+//! Object traits and types
+
 pub use activitystreams_traits::Object;
 pub use activitystreams_types::object::kind;
 

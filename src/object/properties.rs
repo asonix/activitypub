@@ -17,6 +17,36 @@
  * along with ActivityPub.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+//! Namespace for properties of standard Object types
+//!
+//! To use these properties in your own types, you can flatten them into your struct with serde:
+//!
+//! ```rust
+//! extern crate activitypub;
+//! extern crate serde;
+//! #[macro_use]
+//! extern crate serde_derive;
+//!
+//! use activitypub::{Object, object::properties::ApObjectProperties};
+//!
+//! #[derive(Clone, Debug, Serialize, Deserialize)]
+//! #[serde(rename_all = "camelCase")]
+//! pub struct MyObject {
+//!     #[serde(rename = "type")]
+//!     pub kind: String,
+//!
+//!     /// Define a require property for the MyObject type
+//!     pub my_property: String,
+//!
+//!     #[serde(flatten)]
+//!     pub object_props: ApObjectProperties,
+//! }
+//!
+//! impl Object for MyObject {}
+//! #
+//! # fn main() {}
+//! ```
+
 use serde_json;
 
 use super::Object;
@@ -26,9 +56,57 @@ pub use activitystreams_types::object::properties::{
     TombstoneProperties,
 };
 
+/// Define activitypub properties for the Object type as described by the Activity Pub vocabulary.
 #[derive(Clone, Debug, Default, Deserialize, Properties, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct ApObjectProperties {
-    #[activitystreams(ab(Object))]
-    source: Option<serde_json::Value>,
+    // TODO: IRI
+    /// This is a list of all Announce activities with this object as the object property, added as
+    /// a side effect.
+    ///
+    /// The shares collection MUST be either an OrderedCollection or a Collection and MAY be
+    /// filtered on privileges of an authenticated user or as appropriate when no authentication is
+    /// given.
+    ///
+    /// - Range: `anyUri`
+    /// - Functional: true
+    #[activitystreams(concrete(String), functional)]
+    pub shares: Option<serde_json::Value>,
+
+    /// This is a list of all Like activities with this object as the object property, added as a
+    /// side effect.
+    ///
+    /// The likes collection MUST be either an OrderedCollection or a Collection and MAY be
+    /// filtered on privileges of an authenticated user or as appropriate when no authentication is
+    /// given.
+    ///
+    /// - Range: `anyUri`
+    /// - Functional: true
+    #[activitystreams(concrete(String), functional)]
+    pub likes: Option<serde_json::Value>,
+
+    /// The source property is intended to convey some sort of source from which the content markup
+    /// was derived, as a form of provenance, or to support future editing by clients.
+    ///
+    /// In general, clients do the conversion from source to content, not the other way around.
+    ///
+    /// The value of source is itself an object which uses its own content and mediaType fields to
+    /// supply source information.
+    ///
+    /// - Range: `Object`
+    /// - Functional: true
+    #[activitystreams(ab(Object), functional)]
+    pub source: Option<serde_json::Value>,
+
+    /// Servers MAY support uploading document types to be referenced in activites, such as images,
+    /// video or other binary data, but the precise mechanism is out of scope for this version of
+    /// `ActivityPub`.
+    ///
+    /// The Social Web Community Group is refining the protocol in the
+    /// [`ActivityPub` Media Upload report](https://www.w3.org/wiki/SocialCG/ActivityPub/MediaUpload).
+    ///
+    /// - Range: `anyUri`
+    /// - Functional: false
+    #[activitystreams(concrete(String))]
+    pub upload_media: Option<serde_json::Value>,
 }

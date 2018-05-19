@@ -17,42 +17,113 @@
  * along with ActivityPub.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+//! Namespace for properties of standard Actor types
+//!
+//! To use these properties in your own types, you can flatten them into your struct with serde:
+//!
+//! ```rust
+//! extern crate activitypub;
+//! extern crate serde;
+//! #[macro_use]
+//! extern crate serde_derive;
+//!
+//! use activitypub::{Object, Actor, actor::properties::ApActorProperties};
+//!
+//! #[derive(Clone, Debug, Serialize, Deserialize)]
+//! #[serde(rename_all = "camelCase")]
+//! pub struct MyActor {
+//!     #[serde(rename = "type")]
+//!     pub kind: String,
+//!
+//!     /// Define a require property for the MyActor type
+//!     pub my_property: String,
+//!
+//!     #[serde(flatten)]
+//!     pub actor_props: ApActorProperties,
+//! }
+//!
+//! impl Object for MyActor {}
+//! impl Actor for MyActor {}
+//! #
+//! # fn main() {}
+//! ```
+
 use serde_json;
 
 use endpoint::Endpoint;
-use link::Link;
 
+/// Define activitypub properties for the Actor type as described by the Activity Pub vocabulary.
 #[derive(Clone, Debug, Default, Deserialize, Properties, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct ApActorProperties {
     // TODO: IRI
-    #[activitystreams(ab(Link), concrete(String), functional)]
-    inbox: serde_json::Value,
+    /// A reference to an [[ActivityStreams](https://www.w3.org/ns/activitystreams)]
+    /// OrderedCollection comprised of all the messages received by the actor.
+    ///
+    /// - Range: `anyUri`
+    /// - Functional: true
+    #[activitystreams(concrete(String), functional)]
+    pub inbox: serde_json::Value,
 
     // TODO: IRI
-    #[activitystreams(ab(Link), concrete(String), functional)]
-    outbox: serde_json::Value,
+    /// An [ActivityStreams](https://www.w3.org/ns/activitystreams)] OrderedCollection comprised of
+    /// all the messages produced by the actor.
+    ///
+    /// - Range: `anyUri`
+    /// - Functional: true
+    #[activitystreams(concrete(String), functional)]
+    pub outbox: serde_json::Value,
 
     // TODO: IRI
-    #[activitystreams(concrete(String), ab(Link), functional)]
-    following: Option<serde_json::Value>,
+    /// A link to an [[ActivityStreams](https://www.w3.org/ns/activitystreams)] collection of the
+    /// actors that this actor is following.
+    ///
+    /// - Range: `anyUri`
+    /// - Functional: true
+    #[activitystreams(concrete(String), functional)]
+    pub following: Option<serde_json::Value>,
 
     // TODO: IRI
-    #[activitystreams(concrete(String), ab(Link), functional)]
-    followers: Option<serde_json::Value>,
+    /// A link to an [[ActivityStreams](https://www.w3.org/ns/activitystreams)] collection of the
+    /// actors that follow this actor.
+    ///
+    /// - Range: `anyUri`
+    /// - Functional: true
+    #[activitystreams(concrete(String), functional)]
+    pub followers: Option<serde_json::Value>,
 
     // TODO: IRI
-    #[activitystreams(concrete(String), ab(Link), functional)]
-    liked: Option<serde_json::Value>,
+    /// A link to an [[ActivityStreams](https://www.w3.org/ns/activitystreams)] collection of
+    /// objects this actor has liked.
+    ///
+    /// - Range: `anyUri`
+    /// - Functional: true
+    #[activitystreams(concrete(String), functional)]
+    pub liked: Option<serde_json::Value>,
 
     // TODO: IRI
-    #[activitystreams(concrete(String), ab(Link), functional)]
-    shares: Option<serde_json::Value>,
+    /// A list of supplementary Collections which may be of interest.
+    ///
+    /// - Range: `anyUri`
+    /// - Functional: false
+    #[activitystreams(concrete(String))]
+    pub streams: Option<serde_json::Value>,
 
-    // TODO: IRI
-    #[activitystreams(concrete(String), ab(Link))]
-    streams: Option<serde_json::Value>,
+    /// A short username which may be used to refer to the actor, with no uniqueness guarantees.
+    ///
+    /// - Range: `anyUri`
+    /// - Functional: true
+    #[activitystreams(concrete(String), functional)]
+    pub preferred_username: Option<serde_json::Value>,
 
+    /// A json object which maps additional (typically server/domain-wide) endpoints which may be
+    /// useful either for this actor or someone referencing this actor.
+    ///
+    /// This mapping may be nested inside the actor document as the value or may be a link to a
+    /// JSON-LD document with these properties.
+    ///
+    /// - Range: `Endpoint`
+    /// - Functional: true
     #[activitystreams(concrete(Endpoint), functional)]
-    endpoints: Option<serde_json::Value>,
+    pub endpoints: Option<serde_json::Value>,
 }

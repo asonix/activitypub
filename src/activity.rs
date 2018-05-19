@@ -27,6 +27,10 @@ use object::{
     properties::{ApObjectProperties, ObjectProperties}, Object,
 };
 
+/// Indicates that the actor accepts the object.
+///
+/// The target property can be used in certain circumstances to indicate the context into which the
+/// object has been accepted.
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Accept {
@@ -49,6 +53,11 @@ pub struct Accept {
 impl Object for Accept {}
 impl Activity for Accept {}
 
+/// Indicates that the actor has added the object to the target.
+///
+/// If the target property is not explicitly specified, the target would need to be determined
+/// implicitly by context. The origin can be used to identify the context from which the object
+/// originated.
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Add {
@@ -71,6 +80,9 @@ pub struct Add {
 impl Object for Add {}
 impl Activity for Add {}
 
+/// Indicates that the actor has moved object from origin to target.
+///
+/// If the origin or target are not specified, either can be determined by context.
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct AMove {
@@ -93,6 +105,9 @@ pub struct AMove {
 impl Object for AMove {}
 impl Activity for AMove {}
 
+/// Indicates that the actor is calling the target's attention the object.
+///
+/// The origin typically has no defined meaning.
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Announce {
@@ -115,6 +130,10 @@ pub struct Announce {
 impl Object for Announce {}
 impl Activity for Announce {}
 
+/// An IntransitiveActivity that indicates that the actor has arrived at the location.
+///
+/// The origin can be used to identify the context from which the actor originated. The target
+/// typically has no defined meaning.
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Arrive {
@@ -138,6 +157,11 @@ impl Object for Arrive {}
 impl Activity for Arrive {}
 impl IntransitiveActivity for Arrive {}
 
+/// Indicates that the actor is blocking the object.
+///
+/// Blocking is a stronger form of Ignore. The typical use is to support social systems that allow
+/// one user to block activities or content of other users. The target and origin typically have no
+/// defined meaning.
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Block {
@@ -160,6 +184,7 @@ pub struct Block {
 impl Object for Block {}
 impl Activity for Block {}
 
+/// Indicates that the actor has created the object.
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Create {
@@ -182,6 +207,9 @@ pub struct Create {
 impl Object for Create {}
 impl Activity for Create {}
 
+/// Indicates that the actor has deleted the object.
+///
+/// If specified, the origin indicates the context from which the object was deleted.
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Delete {
@@ -204,6 +232,7 @@ pub struct Delete {
 impl Object for Delete {}
 impl Activity for Delete {}
 
+/// Indicates that the actor dislikes the object.
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Dislike {
@@ -226,6 +255,10 @@ pub struct Dislike {
 impl Object for Dislike {}
 impl Activity for Dislike {}
 
+/// Indicates that the actor is "flagging" the object.
+///
+/// Flagging is defined in the sense common to many social platforms as reporting content as being
+/// inappropriate for any number of reasons.
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Flag {
@@ -248,6 +281,11 @@ pub struct Flag {
 impl Object for Flag {}
 impl Activity for Flag {}
 
+/// Indicates that the actor is "following" the object.
+///
+/// Following is defined in the sense typically used within Social systems in which the actor is
+/// interested in any activity performed by or on the object. The target and origin typically have
+/// no defined meaning.
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Follow {
@@ -270,6 +308,9 @@ pub struct Follow {
 impl Object for Follow {}
 impl Activity for Follow {}
 
+/// Indicates that the actor is ignoring the object.
+///
+/// The target and origin typically have no defined meaning.
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Ignore {
@@ -292,6 +333,8 @@ pub struct Ignore {
 impl Object for Ignore {}
 impl Activity for Ignore {}
 
+/// A specialization of Offer in which the actor is extending an invitation for the object to the
+/// target.
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Invite {
@@ -314,6 +357,9 @@ pub struct Invite {
 impl Object for Invite {}
 impl Activity for Invite {}
 
+/// Indicates that the actor has joined the object.
+///
+/// The target and origin typically have no defined meaning
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Join {
@@ -336,6 +382,9 @@ pub struct Join {
 impl Object for Join {}
 impl Activity for Join {}
 
+/// Indicates that the actor has left the object.
+///
+/// The target and origin typically have no meaning.
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Leave {
@@ -358,6 +407,9 @@ pub struct Leave {
 impl Object for Leave {}
 impl Activity for Leave {}
 
+/// Indicates that the actor likes, recommends or endorses the object.
+///
+/// The target and origin typically have no defined meaning.
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Like {
@@ -380,6 +432,7 @@ pub struct Like {
 impl Object for Like {}
 impl Activity for Like {}
 
+/// Indicates that the actor has listened to the object.
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Listen {
@@ -402,6 +455,9 @@ pub struct Listen {
 impl Object for Listen {}
 impl Activity for Listen {}
 
+/// Indicates that the actor is offering the object.
+///
+/// If specified, the target indicates the entity to which the object is being offered.
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Offer {
@@ -424,6 +480,14 @@ pub struct Offer {
 impl Object for Offer {}
 impl Activity for Offer {}
 
+/// Represents a question being asked.
+///
+/// Question objects are an extension of IntransitiveActivity. That is, the Question object is an
+/// Activity, but the direct object is the question itself and therefore it would not contain an
+/// object property.
+///
+/// Either of the anyOf and oneOf properties MAY be used to express possible answers, but a
+/// Question object MUST NOT have both properties.
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Question {
@@ -447,6 +511,7 @@ impl Object for Question {}
 impl Activity for Question {}
 impl IntransitiveActivity for Question {}
 
+/// Indicates that the actor has read the object.
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Read {
@@ -469,6 +534,9 @@ pub struct Read {
 impl Object for Read {}
 impl Activity for Read {}
 
+/// Indicates that the actor is rejecting the object.
+///
+/// The target and origin typically have no defined meaning.
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Reject {
@@ -491,6 +559,9 @@ pub struct Reject {
 impl Object for Reject {}
 impl Activity for Reject {}
 
+/// Indicates that the actor is removing the object.
+///
+/// If specified, the origin indicates the context from which the object is being removed.
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Remove {
@@ -513,6 +584,7 @@ pub struct Remove {
 impl Object for Remove {}
 impl Activity for Remove {}
 
+/// A specialization of Accept indicating that the acceptance is tentative.
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct TentativeAccept {
@@ -535,6 +607,7 @@ pub struct TentativeAccept {
 impl Object for TentativeAccept {}
 impl Activity for TentativeAccept {}
 
+/// A specialization of Reject in which the rejection is considered tentative.
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct TentativeReject {
@@ -557,6 +630,10 @@ pub struct TentativeReject {
 impl Object for TentativeReject {}
 impl Activity for TentativeReject {}
 
+/// Indicates that the actor is traveling to target from origin.
+///
+/// Travel is an IntransitiveObject whose actor specifies the direct object. If the target or
+/// origin are not specified, either can be determined by context.
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Travel {
@@ -580,6 +657,13 @@ impl Object for Travel {}
 impl Activity for Travel {}
 impl IntransitiveActivity for Travel {}
 
+/// Indicates that the actor is undoing the object.
+///
+/// In most cases, the object will be an Activity describing some previously performed action (for
+/// instance, a person may have previously "liked" an article but, for whatever reason, might
+/// choose to undo that like at some later point in time).
+///
+/// The target and origin typically have no defined meaning.
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Undo {
@@ -602,6 +686,12 @@ pub struct Undo {
 impl Object for Undo {}
 impl Activity for Undo {}
 
+/// Indicates that the actor has updated the object.
+///
+/// Note, however, that this vocabulary does not define a mechanism for describing the actual set
+/// of modifications made to object.
+///
+/// The target and origin typically have no defined meaning.
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Update {
@@ -624,6 +714,7 @@ pub struct Update {
 impl Object for Update {}
 impl Activity for Update {}
 
+/// Indicates that the actor has viewed the object.
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct View {

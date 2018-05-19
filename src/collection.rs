@@ -27,6 +27,7 @@ use object::{
     properties::{ApObjectProperties, ObjectProperties}, Object,
 };
 
+/// The default `Collection` type.
 #[derive(Clone, Debug, Default, Deserialize, Serialize, Properties)]
 #[serde(rename_all = "camelCase")]
 pub struct UnorderedCollection {
@@ -49,6 +50,7 @@ pub struct UnorderedCollection {
 impl Object for UnorderedCollection {}
 impl Collection for UnorderedCollection {}
 
+/// Used to represent distinct subsets of items from a `Collection`.
 #[derive(Clone, Debug, Default, Deserialize, Serialize, Properties)]
 #[serde(rename_all = "camelCase")]
 pub struct UnorderedCollectionPage {
@@ -76,6 +78,8 @@ impl Object for UnorderedCollectionPage {}
 impl Collection for UnorderedCollectionPage {}
 impl CollectionPage for UnorderedCollectionPage {}
 
+/// A subtype of `Collection` in which members of the logical collection are assumed to always be
+/// strictly ordered.
 #[derive(Clone, Debug, Default, Deserialize, Serialize, Properties)]
 #[serde(rename_all = "camelCase")]
 pub struct OrderedCollection {
@@ -98,6 +102,7 @@ pub struct OrderedCollection {
 impl Object for OrderedCollection {}
 impl Collection for OrderedCollection {}
 
+/// Used to represent ordered subsets of items from an `OrderedCollection`.
 #[derive(Clone, Debug, Default, Deserialize, Serialize, Properties)]
 #[serde(rename_all = "camelCase")]
 pub struct OrderedCollectionPage {

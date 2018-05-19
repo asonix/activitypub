@@ -17,5 +17,7 @@
  * along with ActivityPub.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+//! Link traits and types
+
 pub use activitystreams_traits::Link;
 pub use activitystreams_types::link::Mention;

@@ -29,14 +29,13 @@ extern crate serde_json;
 pub mod activity;
 pub mod actor;
 pub mod collection;
-pub mod endpoint;
+mod endpoint;
 pub mod link;
 pub mod object;
 
-pub use self::activity::{Activity, IntransitiveActivity};
-pub use self::actor::Actor;
-pub use self::collection::{Collection, CollectionPage};
-pub use self::link::Link;
-pub use self::object::Object;
+pub use self::{
+    activity::{Activity, IntransitiveActivity}, actor::Actor,
+    collection::{Collection, CollectionPage}, endpoint::Endpoint, link::Link, object::Object,
+};
 pub use activitystreams_traits::{properties, Error, Result};
 pub use activitystreams_types::{context, ContextObject, CustomLink, CustomObject};
