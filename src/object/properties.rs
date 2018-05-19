@@ -17,26 +17,18 @@
  * along with ActivityPub.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#[macro_use]
-extern crate activitystreams_derive;
-extern crate activitystreams_traits;
-extern crate activitystreams_types;
-extern crate serde;
-#[macro_use]
-extern crate serde_derive;
-extern crate serde_json;
+use serde_json;
 
-pub mod activity;
-pub mod actor;
-pub mod collection;
-pub mod endpoint;
-pub mod link;
-pub mod object;
+use super::Object;
 
-pub use self::activity::{Activity, IntransitiveActivity};
-pub use self::actor::Actor;
-pub use self::collection::{Collection, CollectionPage};
-pub use self::link::Link;
-pub use self::object::Object;
-pub use activitystreams_traits::{properties, Error, Result};
-pub use activitystreams_types::{context, ContextObject, CustomLink, CustomObject};
+pub use activitystreams_types::object::properties::{
+    ObjectProperties, PlaceProperties, ProfileProperties, RelationshipProperties,
+    TombstoneProperties,
+};
+
+#[derive(Clone, Debug, Default, Deserialize, Properties, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ApObjectProperties {
+    #[activitystreams(ab(Object))]
+    source: Option<serde_json::Value>,
+}
