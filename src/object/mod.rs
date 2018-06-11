@@ -28,6 +28,21 @@ use self::{kind::*, properties::*};
 
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
+pub struct Article {
+    #[serde(rename = "type")]
+    kind: ArticleType,
+
+    #[serde(flatten)]
+    pub object_props: ObjectProperties,
+
+    #[serde(flatten)]
+    pub ap_object_props: ApObjectProperties,
+}
+
+impl Object for Article {}
+
+#[derive(Clone, Debug, Default, Deserialize, Serialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Audio {
     #[serde(rename = "type")]
     kind: AudioType,
