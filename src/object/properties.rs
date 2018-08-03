@@ -56,6 +56,11 @@ pub use activitystreams_types::object::properties::{
     TombstoneProperties,
 };
 
+pub trait ApObjectExt {
+    fn props(&self) -> &ApObjectProperties;
+    fn props_mut(&mut self) -> &mut ApObjectProperties;
+}
+
 /// Define activitypub properties for the Object type as described by the Activity Pub vocabulary.
 #[derive(Clone, Debug, Default, Deserialize, Properties, Serialize)]
 #[serde(rename_all = "camelCase")]

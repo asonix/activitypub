@@ -38,6 +38,7 @@ pub struct Endpoint {
     ///
     /// - Range: `anyUri`
     /// - Functional: true
+    #[serde(skip_serializing_if = "Option::is_none")]
     #[activitystreams(concrete(String))]
     pub proxy_url: Option<serde_json::Value>,
 
@@ -49,6 +50,7 @@ pub struct Endpoint {
     ///
     /// - Range: `anyUri`
     /// - Functional: true
+    #[serde(skip_serializing_if = "Option::is_none")]
     #[activitystreams(concrete(String))]
     pub oauth_authorization_endpoint: Option<serde_json::Value>,
 
@@ -60,6 +62,7 @@ pub struct Endpoint {
     ///
     /// - Range: `anyUri`
     /// - Functional: true
+    #[serde(skip_serializing_if = "Option::is_none")]
     #[activitystreams(concrete(String))]
     pub oauth_token_endpoint: Option<serde_json::Value>,
 
@@ -70,6 +73,7 @@ pub struct Endpoint {
     ///
     /// - Range: `anyUri`
     /// - Functional: true
+    #[serde(skip_serializing_if = "Option::is_none")]
     #[activitystreams(concrete(String))]
     pub provide_client_key: Option<serde_json::Value>,
 
@@ -81,6 +85,7 @@ pub struct Endpoint {
     ///
     /// - Range: `anyUri`
     /// - Functional: true
+    #[serde(skip_serializing_if = "Option::is_none")]
     #[activitystreams(concrete(String))]
     pub sign_client_key: Option<serde_json::Value>,
 
@@ -95,6 +100,7 @@ pub struct Endpoint {
     ///
     /// - Range: `anyUri`
     /// - Functional: true
+    #[serde(skip_serializing_if = "Option::is_none")]
     #[activitystreams(concrete(String))]
     pub shared_inbox: Option<serde_json::Value>,
 }

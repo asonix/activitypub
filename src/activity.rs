@@ -20,11 +20,11 @@
 //! Activity traits and types
 
 pub use activitystreams_traits::{Activity, IntransitiveActivity};
-pub use activitystreams_types::activity::{kind, properties};
+pub use activitystreams_types::activity::{kind, properties::{self, ActivityExt}};
 
 use self::{kind::*, properties::*};
 use object::{
-    properties::{ApObjectProperties, ObjectProperties}, Object,
+    properties::{ApObjectExt, ApObjectProperties, ObjectProperties}, Object, ObjectExt,
 };
 
 /// Indicates that the actor accepts the object.
@@ -51,7 +51,34 @@ pub struct Accept {
 }
 
 impl Object for Accept {}
+impl ObjectExt for Accept {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Accept {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 impl Activity for Accept {}
+impl ActivityExt for Accept {
+    fn props(&self) -> &ActivityProperties {
+        &self.activity_props
+    }
+
+    fn props_mut(&mut self) -> &mut ActivityProperties {
+        &mut self.activity_props
+    }
+}
 
 /// Indicates that the actor has added the object to the target.
 ///
@@ -78,7 +105,34 @@ pub struct Add {
 }
 
 impl Object for Add {}
+impl ObjectExt for Add {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Add {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 impl Activity for Add {}
+impl ActivityExt for Add {
+    fn props(&self) -> &ActivityProperties {
+        &self.activity_props
+    }
+
+    fn props_mut(&mut self) -> &mut ActivityProperties {
+        &mut self.activity_props
+    }
+}
 
 /// Indicates that the actor has moved object from origin to target.
 ///
@@ -103,7 +157,34 @@ pub struct AMove {
 }
 
 impl Object for AMove {}
+impl ObjectExt for AMove {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for AMove {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 impl Activity for AMove {}
+impl ActivityExt for AMove {
+    fn props(&self) -> &ActivityProperties {
+        &self.activity_props
+    }
+
+    fn props_mut(&mut self) -> &mut ActivityProperties {
+        &mut self.activity_props
+    }
+}
 
 /// Indicates that the actor is calling the target's attention the object.
 ///
@@ -128,7 +209,34 @@ pub struct Announce {
 }
 
 impl Object for Announce {}
+impl ObjectExt for Announce {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Announce {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 impl Activity for Announce {}
+impl ActivityExt for Announce {
+    fn props(&self) -> &ActivityProperties {
+        &self.activity_props
+    }
+
+    fn props_mut(&mut self) -> &mut ActivityProperties {
+        &mut self.activity_props
+    }
+}
 
 /// An IntransitiveActivity that indicates that the actor has arrived at the location.
 ///
@@ -154,7 +262,34 @@ pub struct Arrive {
 }
 
 impl Object for Arrive {}
+impl ObjectExt for Arrive {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Arrive {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 impl Activity for Arrive {}
+impl ActivityExt for Arrive {
+    fn props(&self) -> &ActivityProperties {
+        &self.activity_props
+    }
+
+    fn props_mut(&mut self) -> &mut ActivityProperties {
+        &mut self.activity_props
+    }
+}
 impl IntransitiveActivity for Arrive {}
 
 /// Indicates that the actor is blocking the object.
@@ -182,7 +317,34 @@ pub struct Block {
 }
 
 impl Object for Block {}
+impl ObjectExt for Block {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Block {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 impl Activity for Block {}
+impl ActivityExt for Block {
+    fn props(&self) -> &ActivityProperties {
+        &self.activity_props
+    }
+
+    fn props_mut(&mut self) -> &mut ActivityProperties {
+        &mut self.activity_props
+    }
+}
 
 /// Indicates that the actor has created the object.
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
@@ -205,7 +367,34 @@ pub struct Create {
 }
 
 impl Object for Create {}
+impl ObjectExt for Create {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Create {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 impl Activity for Create {}
+impl ActivityExt for Create {
+    fn props(&self) -> &ActivityProperties {
+        &self.activity_props
+    }
+
+    fn props_mut(&mut self) -> &mut ActivityProperties {
+        &mut self.activity_props
+    }
+}
 
 /// Indicates that the actor has deleted the object.
 ///
@@ -230,7 +419,34 @@ pub struct Delete {
 }
 
 impl Object for Delete {}
+impl ObjectExt for Delete {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Delete {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 impl Activity for Delete {}
+impl ActivityExt for Delete {
+    fn props(&self) -> &ActivityProperties {
+        &self.activity_props
+    }
+
+    fn props_mut(&mut self) -> &mut ActivityProperties {
+        &mut self.activity_props
+    }
+}
 
 /// Indicates that the actor dislikes the object.
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
@@ -253,7 +469,34 @@ pub struct Dislike {
 }
 
 impl Object for Dislike {}
+impl ObjectExt for Dislike {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Dislike {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 impl Activity for Dislike {}
+impl ActivityExt for Dislike {
+    fn props(&self) -> &ActivityProperties {
+        &self.activity_props
+    }
+
+    fn props_mut(&mut self) -> &mut ActivityProperties {
+        &mut self.activity_props
+    }
+}
 
 /// Indicates that the actor is "flagging" the object.
 ///
@@ -279,7 +522,34 @@ pub struct Flag {
 }
 
 impl Object for Flag {}
+impl ObjectExt for Flag {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Flag {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 impl Activity for Flag {}
+impl ActivityExt for Flag {
+    fn props(&self) -> &ActivityProperties {
+        &self.activity_props
+    }
+
+    fn props_mut(&mut self) -> &mut ActivityProperties {
+        &mut self.activity_props
+    }
+}
 
 /// Indicates that the actor is "following" the object.
 ///
@@ -306,7 +576,34 @@ pub struct Follow {
 }
 
 impl Object for Follow {}
+impl ObjectExt for Follow {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Follow {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 impl Activity for Follow {}
+impl ActivityExt for Follow {
+    fn props(&self) -> &ActivityProperties {
+        &self.activity_props
+    }
+
+    fn props_mut(&mut self) -> &mut ActivityProperties {
+        &mut self.activity_props
+    }
+}
 
 /// Indicates that the actor is ignoring the object.
 ///
@@ -331,7 +628,34 @@ pub struct Ignore {
 }
 
 impl Object for Ignore {}
+impl ObjectExt for Ignore {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Ignore {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 impl Activity for Ignore {}
+impl ActivityExt for Ignore {
+    fn props(&self) -> &ActivityProperties {
+        &self.activity_props
+    }
+
+    fn props_mut(&mut self) -> &mut ActivityProperties {
+        &mut self.activity_props
+    }
+}
 
 /// A specialization of Offer in which the actor is extending an invitation for the object to the
 /// target.
@@ -355,7 +679,34 @@ pub struct Invite {
 }
 
 impl Object for Invite {}
+impl ObjectExt for Invite {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Invite {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 impl Activity for Invite {}
+impl ActivityExt for Invite {
+    fn props(&self) -> &ActivityProperties {
+        &self.activity_props
+    }
+
+    fn props_mut(&mut self) -> &mut ActivityProperties {
+        &mut self.activity_props
+    }
+}
 
 /// Indicates that the actor has joined the object.
 ///
@@ -380,7 +731,34 @@ pub struct Join {
 }
 
 impl Object for Join {}
+impl ObjectExt for Join {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Join {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 impl Activity for Join {}
+impl ActivityExt for Join {
+    fn props(&self) -> &ActivityProperties {
+        &self.activity_props
+    }
+
+    fn props_mut(&mut self) -> &mut ActivityProperties {
+        &mut self.activity_props
+    }
+}
 
 /// Indicates that the actor has left the object.
 ///
@@ -405,7 +783,34 @@ pub struct Leave {
 }
 
 impl Object for Leave {}
+impl ObjectExt for Leave {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Leave {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 impl Activity for Leave {}
+impl ActivityExt for Leave {
+    fn props(&self) -> &ActivityProperties {
+        &self.activity_props
+    }
+
+    fn props_mut(&mut self) -> &mut ActivityProperties {
+        &mut self.activity_props
+    }
+}
 
 /// Indicates that the actor likes, recommends or endorses the object.
 ///
@@ -430,7 +835,34 @@ pub struct Like {
 }
 
 impl Object for Like {}
+impl ObjectExt for Like {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Like {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 impl Activity for Like {}
+impl ActivityExt for Like {
+    fn props(&self) -> &ActivityProperties {
+        &self.activity_props
+    }
+
+    fn props_mut(&mut self) -> &mut ActivityProperties {
+        &mut self.activity_props
+    }
+}
 
 /// Indicates that the actor has listened to the object.
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
@@ -453,7 +885,34 @@ pub struct Listen {
 }
 
 impl Object for Listen {}
+impl ObjectExt for Listen {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Listen {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 impl Activity for Listen {}
+impl ActivityExt for Listen {
+    fn props(&self) -> &ActivityProperties {
+        &self.activity_props
+    }
+
+    fn props_mut(&mut self) -> &mut ActivityProperties {
+        &mut self.activity_props
+    }
+}
 
 /// Indicates that the actor is offering the object.
 ///
@@ -478,7 +937,34 @@ pub struct Offer {
 }
 
 impl Object for Offer {}
+impl ObjectExt for Offer {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Offer {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 impl Activity for Offer {}
+impl ActivityExt for Offer {
+    fn props(&self) -> &ActivityProperties {
+        &self.activity_props
+    }
+
+    fn props_mut(&mut self) -> &mut ActivityProperties {
+        &mut self.activity_props
+    }
+}
 
 /// Represents a question being asked.
 ///
@@ -508,7 +994,34 @@ pub struct Question {
 }
 
 impl Object for Question {}
+impl ObjectExt for Question {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Question {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 impl Activity for Question {}
+impl ActivityExt for Question {
+    fn props(&self) -> &ActivityProperties {
+        &self.activity_props
+    }
+
+    fn props_mut(&mut self) -> &mut ActivityProperties {
+        &mut self.activity_props
+    }
+}
 impl IntransitiveActivity for Question {}
 
 /// Indicates that the actor has read the object.
@@ -532,7 +1045,34 @@ pub struct Read {
 }
 
 impl Object for Read {}
+impl ObjectExt for Read {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Read {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 impl Activity for Read {}
+impl ActivityExt for Read {
+    fn props(&self) -> &ActivityProperties {
+        &self.activity_props
+    }
+
+    fn props_mut(&mut self) -> &mut ActivityProperties {
+        &mut self.activity_props
+    }
+}
 
 /// Indicates that the actor is rejecting the object.
 ///
@@ -557,7 +1097,34 @@ pub struct Reject {
 }
 
 impl Object for Reject {}
+impl ObjectExt for Reject {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Reject {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 impl Activity for Reject {}
+impl ActivityExt for Reject {
+    fn props(&self) -> &ActivityProperties {
+        &self.activity_props
+    }
+
+    fn props_mut(&mut self) -> &mut ActivityProperties {
+        &mut self.activity_props
+    }
+}
 
 /// Indicates that the actor is removing the object.
 ///
@@ -582,7 +1149,34 @@ pub struct Remove {
 }
 
 impl Object for Remove {}
+impl ObjectExt for Remove {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Remove {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 impl Activity for Remove {}
+impl ActivityExt for Remove {
+    fn props(&self) -> &ActivityProperties {
+        &self.activity_props
+    }
+
+    fn props_mut(&mut self) -> &mut ActivityProperties {
+        &mut self.activity_props
+    }
+}
 
 /// A specialization of Accept indicating that the acceptance is tentative.
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
@@ -605,7 +1199,34 @@ pub struct TentativeAccept {
 }
 
 impl Object for TentativeAccept {}
+impl ObjectExt for TentativeAccept {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for TentativeAccept {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 impl Activity for TentativeAccept {}
+impl ActivityExt for TentativeAccept {
+    fn props(&self) -> &ActivityProperties {
+        &self.activity_props
+    }
+
+    fn props_mut(&mut self) -> &mut ActivityProperties {
+        &mut self.activity_props
+    }
+}
 
 /// A specialization of Reject in which the rejection is considered tentative.
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
@@ -628,7 +1249,34 @@ pub struct TentativeReject {
 }
 
 impl Object for TentativeReject {}
+impl ObjectExt for TentativeReject {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for TentativeReject {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 impl Activity for TentativeReject {}
+impl ActivityExt for TentativeReject {
+    fn props(&self) -> &ActivityProperties {
+        &self.activity_props
+    }
+
+    fn props_mut(&mut self) -> &mut ActivityProperties {
+        &mut self.activity_props
+    }
+}
 
 /// Indicates that the actor is traveling to target from origin.
 ///
@@ -654,7 +1302,34 @@ pub struct Travel {
 }
 
 impl Object for Travel {}
+impl ObjectExt for Travel {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Travel {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 impl Activity for Travel {}
+impl ActivityExt for Travel {
+    fn props(&self) -> &ActivityProperties {
+        &self.activity_props
+    }
+
+    fn props_mut(&mut self) -> &mut ActivityProperties {
+        &mut self.activity_props
+    }
+}
 impl IntransitiveActivity for Travel {}
 
 /// Indicates that the actor is undoing the object.
@@ -684,7 +1359,34 @@ pub struct Undo {
 }
 
 impl Object for Undo {}
+impl ObjectExt for Undo {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Undo {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 impl Activity for Undo {}
+impl ActivityExt for Undo {
+    fn props(&self) -> &ActivityProperties {
+        &self.activity_props
+    }
+
+    fn props_mut(&mut self) -> &mut ActivityProperties {
+        &mut self.activity_props
+    }
+}
 
 /// Indicates that the actor has updated the object.
 ///
@@ -712,7 +1414,34 @@ pub struct Update {
 }
 
 impl Object for Update {}
+impl ObjectExt for Update {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Update {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 impl Activity for Update {}
+impl ActivityExt for Update {
+    fn props(&self) -> &ActivityProperties {
+        &self.activity_props
+    }
+
+    fn props_mut(&mut self) -> &mut ActivityProperties {
+        &mut self.activity_props
+    }
+}
 
 /// Indicates that the actor has viewed the object.
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
@@ -735,4 +1464,31 @@ pub struct View {
 }
 
 impl Object for View {}
+impl ObjectExt for View {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for View {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 impl Activity for View {}
+impl ActivityExt for View {
+    fn props(&self) -> &ActivityProperties {
+        &self.activity_props
+    }
+
+    fn props_mut(&mut self) -> &mut ActivityProperties {
+        &mut self.activity_props
+    }
+}

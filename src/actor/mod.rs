@@ -26,7 +26,7 @@ pub mod properties;
 
 use self::{kind::*, properties::*};
 use object::{
-    properties::{ApObjectProperties, ObjectProperties}, Object,
+    properties::{ApObjectExt, ApObjectProperties, ObjectProperties}, Object, ObjectExt,
 };
 
 /// Describes a software application.
@@ -50,7 +50,34 @@ pub struct Application {
 }
 
 impl Object for Application {}
+impl ObjectExt for Application {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Application {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 impl Actor for Application {}
+impl ApActorExt for Application {
+    fn props(&self) -> &ApActorProperties {
+        &self.ap_actor_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApActorProperties {
+        &mut self.ap_actor_props
+    }
+}
 
 /// Represents a formal or informal collective of Actors.
 #[derive(Clone, Debug, Default, Deserialize, Serialize, Properties)]
@@ -73,7 +100,34 @@ pub struct Group {
 }
 
 impl Object for Group {}
+impl ObjectExt for Group {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Group {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 impl Actor for Group {}
+impl ApActorExt for Group {
+    fn props(&self) -> &ApActorProperties {
+        &self.ap_actor_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApActorProperties {
+        &mut self.ap_actor_props
+    }
+}
 
 /// Represents an organization.
 #[derive(Clone, Debug, Default, Deserialize, Serialize, Properties)]
@@ -96,7 +150,34 @@ pub struct Organization {
 }
 
 impl Object for Organization {}
+impl ObjectExt for Organization {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Organization {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 impl Actor for Organization {}
+impl ApActorExt for Organization {
+    fn props(&self) -> &ApActorProperties {
+        &self.ap_actor_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApActorProperties {
+        &mut self.ap_actor_props
+    }
+}
 
 /// Represents an individual person.
 #[derive(Clone, Debug, Default, Deserialize, Serialize, Properties)]
@@ -119,7 +200,34 @@ pub struct Person {
 }
 
 impl Object for Person {}
+impl ObjectExt for Person {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Person {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 impl Actor for Person {}
+impl ApActorExt for Person {
+    fn props(&self) -> &ApActorProperties {
+        &self.ap_actor_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApActorProperties {
+        &mut self.ap_actor_props
+    }
+}
 
 /// Represents a service of any kind.
 #[derive(Clone, Debug, Default, Deserialize, Serialize, Properties)]
@@ -142,4 +250,31 @@ pub struct Service {
 }
 
 impl Object for Service {}
+impl ObjectExt for Service {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Service {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 impl Actor for Service {}
+impl ApActorExt for Service {
+    fn props(&self) -> &ApActorProperties {
+        &self.ap_actor_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApActorProperties {
+        &mut self.ap_actor_props
+    }
+}

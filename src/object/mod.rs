@@ -20,7 +20,7 @@
 //! Object traits and types
 
 pub use activitystreams_traits::Object;
-pub use activitystreams_types::object::kind;
+pub use activitystreams_types::object::{properties::ObjectExt, kind};
 
 pub mod properties;
 
@@ -40,6 +40,24 @@ pub struct Article {
 }
 
 impl Object for Article {}
+impl ObjectExt for Article {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Article {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -55,6 +73,24 @@ pub struct Audio {
 }
 
 impl Object for Audio {}
+impl ObjectExt for Audio {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Audio {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -70,6 +106,24 @@ pub struct Document {
 }
 
 impl Object for Document {}
+impl ObjectExt for Document {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Document {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -85,6 +139,24 @@ pub struct Event {
 }
 
 impl Object for Event {}
+impl ObjectExt for Event {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Event {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -100,6 +172,24 @@ pub struct Image {
 }
 
 impl Object for Image {}
+impl ObjectExt for Image {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Image {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -115,6 +205,24 @@ pub struct Note {
 }
 
 impl Object for Note {}
+impl ObjectExt for Note {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Note {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -130,6 +238,24 @@ pub struct Page {
 }
 
 impl Object for Page {}
+impl ObjectExt for Page {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Page {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -148,6 +274,24 @@ pub struct Place {
 }
 
 impl Object for Place {}
+impl ObjectExt for Place {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Place {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -166,6 +310,24 @@ pub struct Profile {
 }
 
 impl Object for Profile {}
+impl ObjectExt for Profile {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Profile {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -184,6 +346,24 @@ pub struct Relationship {
 }
 
 impl Object for Relationship {}
+impl ObjectExt for Relationship {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Relationship {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -202,6 +382,24 @@ pub struct Tombstone {
 }
 
 impl Object for Tombstone {}
+impl ObjectExt for Tombstone {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Tombstone {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
 
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -217,3 +415,21 @@ pub struct Video {
 }
 
 impl Object for Video {}
+impl ObjectExt for Video {
+    fn props(&self) -> &ObjectProperties {
+        &self.object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ObjectProperties {
+        &mut self.object_props
+    }
+}
+impl ApObjectExt for Video {
+    fn props(&self) -> &ApObjectProperties {
+        &self.ap_object_props
+    }
+
+    fn props_mut(&mut self) -> &mut ApObjectProperties {
+        &mut self.ap_object_props
+    }
+}
