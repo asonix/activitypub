@@ -106,6 +106,7 @@ pub struct ApActorProperties {
     ///
     /// - Range: `anyUri`
     /// - Functional: false
+    #[serde(skip_serializing_if = "Option::is_none")]
     #[activitystreams(concrete(String))]
     pub streams: Option<serde_json::Value>,
 
@@ -113,6 +114,7 @@ pub struct ApActorProperties {
     ///
     /// - Range: `anyUri`
     /// - Functional: true
+    #[serde(skip_serializing_if = "Option::is_none")]
     #[activitystreams(concrete(String), functional)]
     pub preferred_username: Option<serde_json::Value>,
 
@@ -124,6 +126,7 @@ pub struct ApActorProperties {
     ///
     /// - Range: `Endpoint`
     /// - Functional: true
+    #[serde(skip_serializing_if = "Option::is_none")]
     #[activitystreams(concrete(Endpoint), functional)]
     pub endpoints: Option<serde_json::Value>,
 }

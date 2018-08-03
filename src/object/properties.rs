@@ -70,6 +70,7 @@ pub struct ApObjectProperties {
     ///
     /// - Range: `anyUri`
     /// - Functional: true
+    #[serde(skip_serializing_if = "Option::is_none")]
     #[activitystreams(concrete(String), functional)]
     pub shares: Option<serde_json::Value>,
 
@@ -82,6 +83,7 @@ pub struct ApObjectProperties {
     ///
     /// - Range: `anyUri`
     /// - Functional: true
+    #[serde(skip_serializing_if = "Option::is_none")]
     #[activitystreams(concrete(String), functional)]
     pub likes: Option<serde_json::Value>,
 
@@ -95,6 +97,7 @@ pub struct ApObjectProperties {
     ///
     /// - Range: `Object`
     /// - Functional: true
+    #[serde(skip_serializing_if = "Option::is_none")]
     #[activitystreams(ab(Object), functional)]
     pub source: Option<serde_json::Value>,
 
@@ -107,6 +110,7 @@ pub struct ApObjectProperties {
     ///
     /// - Range: `anyUri`
     /// - Functional: false
+    #[serde(skip_serializing_if = "Option::is_none")]
     #[activitystreams(concrete(String))]
     pub upload_media: Option<serde_json::Value>,
 }
