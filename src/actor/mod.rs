@@ -30,6 +30,9 @@ use object::{
     ApObjectExt, Object, ObjectExt,
 };
 
+/// The ActivityPub Actor Extension Trait
+///
+/// This trait provides generic access to an activitypub actor's properties
 pub trait ApActorExt: Actor {
     fn props(&self) -> &ApActorProperties;
     fn props_mut(&mut self) -> &mut ApActorProperties;

@@ -1,7 +1,7 @@
 [package]
 name = "activitypub"
 description = "ActivityPub in Rust"
-version = "0.1.2"
+version = "0.1.3"
 license = "GPL-3.0"
 authors = ["asonix <asonix.dev@gmail.com>"]
 repository = "https://github.com/asonix/activitypub"
@@ -9,9 +9,9 @@ readme = "README.md"
 keywords = ["activitystreams", "activitypub"]
 
 [dependencies]
-activitystreams-derive = { version = "0.1", git = "https://git.asonix.cloud/asonix/activitystreams.git" }
-activitystreams-traits = { version = "0.1", git = "https://git.asonix.cloud/asonix/activitystreams.git" }
-activitystreams-types = { version = "0.2", git = "https://git.asonix.cloud/asonix/activitystreams.git" }
+activitystreams-derive = "0.1"
+activitystreams-traits = "0.1"
+activitystreams-types = "0.2.1"
 serde = "1.0"
 serde_derive = "1.0"
 serde_json = "1.0"

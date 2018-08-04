@@ -26,6 +26,9 @@ pub mod properties;
 
 use self::{kind::*, properties::*};
 
+/// The ActivityPub Object Extension Trait
+///
+/// This trait provides generic access to an activitypub object's properties
 pub trait ApObjectExt: Object {
     fn props(&self) -> &ApObjectProperties;
     fn props_mut(&mut self) -> &mut ApObjectProperties;
