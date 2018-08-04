@@ -3,8 +3,8 @@ name = "activitypub"
 description = "ActivityPub in Rust"
 version = "0.1.3"
 license = "GPL-3.0"
-authors = ["asonix <asonix.dev@gmail.com>"]
-repository = "https://github.com/asonix/activitypub"
+authors = ["asonix <asonix@asonix.dog>"]
+repository = "https://git.asonix.cloud/asonix/activitypub.git"
 readme = "README.md"
 keywords = ["activitystreams", "activitypub"]
 
