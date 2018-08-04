@@ -26,8 +26,14 @@ pub mod properties;
 
 use self::{kind::*, properties::*};
 use object::{
-    properties::{ApObjectExt, ApObjectProperties, ObjectProperties}, Object, ObjectExt,
+    properties::{ApObjectProperties, ObjectProperties},
+    ApObjectExt, Object, ObjectExt,
 };
+
+pub trait ApActorExt: Actor {
+    fn props(&self) -> &ApActorProperties;
+    fn props_mut(&mut self) -> &mut ApActorProperties;
+}
 
 /// Describes a software application.
 #[derive(Clone, Debug, Default, Deserialize, Serialize, Properties)]

@@ -20,4 +20,4 @@
 //! Link traits and types
 
 pub use activitystreams_traits::Link;
-pub use activitystreams_types::link::Mention;
+pub use activitystreams_types::link::{LinkExt, Mention};

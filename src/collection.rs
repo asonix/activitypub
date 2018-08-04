@@ -20,11 +20,12 @@
 //! Collection traits and types
 
 pub use activitystreams_traits::{Collection, CollectionPage};
-pub use activitystreams_types::collection::{kind, properties::{self, CollectionExt, CollectionPageExt}};
+pub use activitystreams_types::collection::{kind, properties, CollectionExt, CollectionPageExt};
 
 use self::{kind::*, properties::*};
 use object::{
-    properties::{ApObjectExt, ApObjectProperties, ObjectProperties}, Object, ObjectExt,
+    properties::{ApObjectProperties, ObjectProperties},
+    ApObjectExt, Object, ObjectExt,
 };
 
 /// The default `Collection` type.

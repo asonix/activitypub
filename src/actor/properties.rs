@@ -52,11 +52,6 @@ use serde_json;
 
 use endpoint::Endpoint;
 
-pub trait ApActorExt {
-    fn props(&self) -> &ApActorProperties;
-    fn props_mut(&mut self) -> &mut ApActorProperties;
-}
-
 /// Define activitypub properties for the Actor type as described by the Activity Pub vocabulary.
 #[derive(Clone, Debug, Default, Deserialize, Properties, Serialize)]
 #[serde(rename_all = "camelCase")]

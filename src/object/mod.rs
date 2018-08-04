@@ -20,11 +20,16 @@
 //! Object traits and types
 
 pub use activitystreams_traits::Object;
-pub use activitystreams_types::object::{properties::ObjectExt, kind};
+pub use activitystreams_types::object::{kind, ObjectExt};
 
 pub mod properties;
 
 use self::{kind::*, properties::*};
+
+pub trait ApObjectExt: Object {
+    fn props(&self) -> &ApObjectProperties;
+    fn props_mut(&mut self) -> &mut ApObjectProperties;
+}
 
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]

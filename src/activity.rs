@@ -20,11 +20,12 @@
 //! Activity traits and types
 
 pub use activitystreams_traits::{Activity, IntransitiveActivity};
-pub use activitystreams_types::activity::{kind, properties::{self, ActivityExt}};
+pub use activitystreams_types::activity::{kind, properties, ActivityExt};
 
 use self::{kind::*, properties::*};
 use object::{
-    properties::{ApObjectExt, ApObjectProperties, ObjectProperties}, Object, ObjectExt,
+    properties::{ApObjectProperties, ObjectProperties},
+    ApObjectExt, Object, ObjectExt,
 };
 
 /// Indicates that the actor accepts the object.
